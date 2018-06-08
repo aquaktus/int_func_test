@@ -14,5 +14,3 @@ Resources:
         - "AWSLambdaDynamoDBExecutionRole"
       MemorySize: 128
       Timeout: 3
-  MyTable:
-     Type: AWS::Serverless::SimpleTable

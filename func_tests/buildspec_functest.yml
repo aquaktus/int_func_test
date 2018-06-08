@@ -15,7 +15,7 @@ phases:
     commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
       - pwd
-      - aws cloudformation package --template ./template.yml --s3-bucket hibirdi-experimental-s3-bucket --s3-prefix int_func_test --output-template ./template-export.yml
+      - aws cloudformation package --template ./func_tests/template.yml --s3-bucket hibirdi-experimental-s3-bucket --s3-prefix int_func_test --output-template ./func_tests/template-export.yml
 
 artifacts:
   type: zip

@@ -8,4 +8,5 @@ def lambda_handler(event, context):
     print("value3 = " + event['key3'])
     print("Hi there...!")
     print("Fionaaaaaaaaa!!!!!!!")
-    return event['key1']  # Echo back the first key value
+    #return event['key1']  # Echo back the first key value
+    return "Success"

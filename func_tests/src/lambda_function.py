@@ -2,6 +2,7 @@ from __future__ import print_function
 import json
 from datetime import datetime
 import boto3
+from botocore.exceptions import ClientError
 print('Loading function')
 def lambda_handler(event, context):
     try:

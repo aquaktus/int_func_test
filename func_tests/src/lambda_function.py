@@ -18,11 +18,12 @@ def lambda_handler(event, context):
     try:
         codepipeline = boto3.client('codepipeline')
         #codepipeline.put_job_success_result(jobId=job_id)
+        #print('SUCCESS!!!!: All functional tests passed')
         codepipeline.put_job_failure_result(jobId=job_id, failureDetails={
         'type': 'JobFailed',
         'message': 'Functional Tests failed',
         'externalExecutionId': 'string'})
-        print('SUCCESS: All functional tests passed')
+        print('FAILURE!!!!: Some functional tests failed')
         return True
     except ClientError as err:
         LOGGER.error("Failed to PutJobSuccessResult for CodePipeline!\n%s", err)

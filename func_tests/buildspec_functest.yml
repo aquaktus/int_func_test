@@ -15,6 +15,7 @@ phases:
     commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
       - pwd
+      - aws cloudformation delete-stack --stack-name hello-sam
       - aws cloudformation package --template ./func_tests/template.yml --s3-bucket hibirdi-experimental-s3-bucket --s3-prefix int_func_test --output-template ./func_tests/template-export.yml
       - aws cloudformation deploy --capabilities CAPABILITY_IAM --template-file ./func_tests/template-export.yml --stack-name hello-sam
 

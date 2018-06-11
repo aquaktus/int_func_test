@@ -6,7 +6,7 @@ print('Loading function')
 def lambda_handler(event, context):
     try:
         job_id = event['CodePipeline.job']['id']
-        print(str(datetime.now()), ":", str(job_id)
+        print(str(datetime.now()), ":", str(job_id))
     except KeyError as err:
         print("Could not retrieve CodePipeline Job ID!\n%s", err)
     print("Received event: " + json.dumps(event, indent=2))

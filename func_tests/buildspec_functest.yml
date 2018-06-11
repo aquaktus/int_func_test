@@ -17,7 +17,7 @@ phases:
       - pwd
       # - aws cloudformation delete-stack --stack-name hello-sam
       - aws cloudformation package --template ./func_tests/template.yml --s3-bucket hibirdi-experimental-s3-bucket --s3-prefix int_func_test --output-template ./func_tests/template-export.yml
-      - aws cloudformation deploy --capabilities CAPABILITY_IAM --template-file ./func_tests/template-export.yml --stack-name hello-sam
+      - aws cloudformation deploy --capabilities CAPABILITY_IAM --template-file ./func_tests/template-export.yml --no-fail-on-empty-changeset --stack-name hello-sam
 
 #artifacts:
 #  type: zip

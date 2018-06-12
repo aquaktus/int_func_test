@@ -3,6 +3,11 @@ import json
 from datetime import datetime
 import boto3
 from botocore.exceptions import ClientError
+
+# this is what we will use to make the endpont requests
+from botocore.vendored import requests
+print("requests loaded correctly")
+
 print('Loading function')
 def lambda_handler(event, context):
     # Get the job id so that we can update the result of this lambda and codepipeline
@@ -16,6 +21,16 @@ def lambda_handler(event, context):
     ft_passed = True
     # If all functional tests passed, call PutJobSuccessResult with this job id.
     # Else, PutJobFailureResult with this job id.
+    # Import the tests
+    with open('tests.json') as f:
+        print("reading tests.json")
+        tests = json.load(f)
+    if tests is None:
+        # This forces there to be functional tests
+        print("No tests.json found!")
+        ft_passed = False
+    print("tests.json found located!")
+    
     if ft_passed:
         codepipeline = boto3.client('codepipeline')
         try:  
